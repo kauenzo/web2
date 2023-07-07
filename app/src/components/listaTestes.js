@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const TestListComponent = () => {
+const ListaTestes = () => {
   const [tests, setTests] = useState([]);
 
   const loadPage = () => {
@@ -20,13 +20,13 @@ const TestListComponent = () => {
 
   return (
     <div className="container-fluid mt-3">
-      <h2 className="text-center">Testes</h2>
+      <h2 className="text-center text-3xl font-bold">Testes</h2>
       <div className="container-fluid">
         <hr style={{ width: '90%' }} />
         <div id="contTable">
           <div className="text-center mt-4 mb-4 d-none" id="loading">
             <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
+              <span className="sr-only">Carregando...</span>
             </div>
           </div>
           <table className="table table-sm table-striped table-hover table-bordered mb-3" id="main-table">
@@ -43,7 +43,7 @@ const TestListComponent = () => {
                   <td className="text-center">{test._id}</td>
                   <td>{test.title}</td>
                   <td className="text-center">
-                    <Link to={`/test-question/${test._id}`} className="btn btn-sm btn-secondary m-1">
+                    <Link to={`/listaPerguntasERespostas/${test._id}`} className="btn btn-sm btn-secondary m-1">
                       <i className="bi bi-file-earmark-medical"></i>
                     </Link>
                   </td>
@@ -57,4 +57,4 @@ const TestListComponent = () => {
   );
 };
 
-export default TestListComponent;
+export default ListaTestes;

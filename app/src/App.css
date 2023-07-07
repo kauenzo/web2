@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .list {
   text-align: left;
   max-width: 750px;
@@ -17,4 +21,26 @@
 .custom-modal .modal-dialog {
   width: 95%;
   max-width: none;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #111;
+  overflow-x: hidden;
+}
+
+.sidebar .navbar-brand,
+.sidebar .nav-link {
+  color: #818181;
+  transition: color 0.3s;
+}
+
+.sidebar .navbar-brand:hover,
+.sidebar .nav-link:hover {
+  color: #f1f1f1;
 }

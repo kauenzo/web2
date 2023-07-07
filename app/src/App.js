@@ -4,38 +4,37 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import TestQuestion from "./components/test-questions.component";
-import TestRegister from "./components/test-register.component";
-import TestList from "./components/test-list.component"
+import TestQuestion from "./components/listaAsPerguntasERespostas";
+import TestRegister from "./components/cadastrarTeste";
+import TestList from "./components/listaTestes"
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/teste"} className="navbar-brand">
-            Test-system
+      <div className="flex">
+        <div className="w-1/6 h-screen bg-neutral-800  text-white">
+          <Link to={"/teste"} className="text-3xl font-semibold hover:bg-neutral-600 text-white my-5 ml-3">
+            Questionários
           </Link>
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/teste"} className="nav-link">
-                Register Test
+          <div className="my-5 ml-3">
+            <div>
+              <Link to={"/teste"} className="text-lg my-5 py-2 text-base text-white hover:text-gray-300 hover:bg-neutral-600">
+                Cadastrar novo testes
               </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/test-list"} className="nav-link">
-                Tests
+              <div className='my-2'/>
+              <Link to={"/listaTestes"} className="text-lg my-5 py-2 text-base text-white hover:text-gray-300 hover:bg-neutral-600">
+                Testes cadastrados
               </Link>
-            </li>
+            </div>
           </div>
-        </nav>
+        </div>
 
-        <div className="container-fluid">
+        <div className="w-5/6 h-screen">
           <Routes>
             <Route path="/" element={<TestRegister />} />
             <Route path="/teste" element={<TestRegister />} />
-            <Route path="/test-question/:id" element={<TestQuestion />} />
-            <Route path="/test-list" element={<TestList />} />
+            <Route path="/listaPerguntasERespostas/:id" element={<TestQuestion />} />
+            <Route path="/listaTestes" element={<TestList />} />
           </Routes>
         </div>
       </div>

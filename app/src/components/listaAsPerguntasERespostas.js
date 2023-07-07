@@ -75,8 +75,8 @@ const TestResultComponent = () => {
   if (tests.length === 0) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
-        <div class="spinner-border m-5" role="status">
-          <span class="sr-only"></span>
+        <div className="spinner-border m-5" role="status">
+          <span className="sr-only"></span>
         </div>
       </div>
     );
@@ -86,24 +86,23 @@ const TestResultComponent = () => {
     <div className="container-fluid">
       <div className="row justify-content-center align-items-center mt-4">
         <div className="col-md-8">
-          <h2 className="text-center mb-4">Perguntas e Respostas</h2>
+          <h2 className="text-center mb-4 text-2xl font-semibold">Questionários</h2>
           <div className={`text-center mt-4 mb-4 ${loading ? "" : "d-none"}`} id="loading">
             <div className="spinner-border text-primary" role="status">
-              <span className="sr-only">Loading...</span>
+              <span className="sr-only">Carregando...</span>
             </div>
           </div>
           <div id="main">
             <form id="form">
-              <label>Studant Name</label>
-              <input type="text" name="studantName" id='studant-name' className="form-control form-control-sm" />
-              <hr></hr>
+              <label className="text-lg font-normal">Estudante:</label>
+              <input type="text" name="studantName" id='studant-name' className="w-full px-3 py-2 border shadow rounded-xl outline-none text-gray-700 focus:shadow-outline" />
               {tests.questions.map((question, index) => (
-                <div className="card" key={index}>
-                  <div className="card-body" name={index}>
-                    <p className="card-text">{question.description}</p>
+                <div className="shadow rounded-xl" key={index}>
+                  <div className="border-0 m-2 p-2" name={index}>
+                    <p className="text-lg font-semibold">{question.description}</p>
                     <div className="form-check">
                       <input
-                        className="form-check-input"
+                        className="form-check-input checkbox"
                         type="radio"
                         name={index}
                         id={`${index}-A`}
@@ -170,10 +169,10 @@ const TestResultComponent = () => {
               <button
                 type="button"
                 onClick={() => submit(test.id)}
-                className="btn btn-primary"
+                className="px-4  bg-green-600 hover:bg-green-800 text-white text-sm font-semibold rounded rounded-xl"
                 disabled={loading}
               >
-                Enviar Respostas
+                Enviar
               </button>
             </div>
           </div>
